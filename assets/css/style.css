@@ -1,0 +1,331 @@
+#custom-comments-system-container {
+    --color-primary: #E7A439;
+    --color-primary-light: #FFF6E8;
+    --color-text-light: #fdf6eb;
+    --color-text-dark: #66614d;
+    --color-label: #2e210b;
+    --color-border: #66614d;
+
+    font-family: 'YekanBakh', sans-serif;
+    width: 1126px;
+    direction: rtl;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+#custom-comments-system-container * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   1. Comment Form Styling
+   ========================================== */
+
+#custom-comments-system-container .custom-form {
+    width: 100%;
+    max-width: 1134px; /* 547 + 547 + 40 gap = 1134 */
+    margin: 0 auto 0 auto;
+}
+
+#custom-comments-system-container .comments-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 80px auto 40px auto;
+    color: var(--color-label);
+    width: 100%;
+}
+
+/* First row (name & email side-by-side) */
+#custom-comments-system-container .form-row {
+    display: flex;
+    gap: 40px; /* Gap between fields */
+    margin-bottom: 30px;
+}
+
+#custom-comments-system-container .form-group {
+    flex: 1; /* Each field takes 50% width */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+#custom-comments-system-container label {
+    font-size: 18px;
+    color: var(--color-label); /* Color from Swatch */
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* Inputs & Textarea */
+#custom-comments-system-container input,
+#custom-comments-system-container textarea {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--color-label);
+    transition: all 0.3s ease;
+}
+
+/* Inputs (Name & Email) */
+#custom-comments-system-container input {
+    height: 56px;
+    width: 100%;
+}
+
+/* Textarea */
+#custom-comments-system-container textarea {
+    width: 100%;
+    height: 194px;
+    padding: 16px;
+    resize: none;
+    line-height: 1.5;
+}
+
+/* Placeholders */
+#custom-comments-system-container input::placeholder,
+#custom-comments-system-container textarea::placeholder {
+    color: #a5a094;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Focus states */
+#custom-comments-system-container input:focus,
+#custom-comments-system-container textarea:focus {
+    outline: none;
+    border-color: var(--color-primary); /* Golden border on focus */
+}
+
+/* Focus placeholders */
+#custom-comments-system-container input:focus::placeholder,
+#custom-comments-system-container textarea:focus::placeholder {
+    color: var(--color-primary);
+    opacity: 1;
+}
+
+/* Button container */
+#custom-comments-system-container .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Submit button */
+#custom-comments-system-container .submit-btn {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 8px;
+    padding: 12px 48px;
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#custom-comments-system-container .submit-btn:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+#custom-comments-system-container input#email {
+    text-align: left;
+}
+
+/* AJAX status notices */
+#custom-comments-system-container .comment-submit-notice {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+#custom-comments-system-container .comment-submit-notice--success {
+    background-color: #e6f4ea;
+    color: #137333;
+    border: 1px solid #c2e7c9;
+}
+
+#custom-comments-system-container .comment-submit-notice--error {
+    background-color: #fce8e6;
+    color: #c5221f;
+    border: 1px solid #fad2cf;
+}
+
+/* Loading state for button */
+#custom-comments-system-container .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   2. Comments Display List Styling
+   ========================================== */
+
+#custom-comments-system-container .comments-section {
+    width: 1126px;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#custom-comments-system-container .comments-list {
+    list-style: none;
+}
+
+#custom-comments-system-container .comment-item {
+    margin-bottom: 40px;
+}
+
+/* Comment headers (meta) */
+#custom-comments-system-container .comment__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 4px;
+}
+
+#custom-comments-system-container .comment__meta--reply {
+    width: 768px;
+    margin-right: 128px;
+}
+
+#custom-comments-system-container .comment__author,
+#custom-comments-system-container .comment__date {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-label);
+}
+
+/* Comment boxes */
+#custom-comments-system-container .comment__box {
+    position: relative;
+    border-radius: 12px;
+    padding: 24px 40px 24px 28px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    min-height: 167px; /* Use min-height instead of fixed height to prevent content overflow */
+    box-sizing: border-box;
+}
+
+/* Main Comment (Orange) */
+#custom-comments-system-container .comment__box--main {
+    width: 896px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* Admin Reply Comment (Cream) */
+#custom-comments-system-container .comment__box--reply {
+    width: 768px;
+    background-color: var(--color-primary-light);
+    color: var(--color-text-dark);
+    margin-right: 128px;
+}
+
+/* Vertical lines inside comment boxes */
+#custom-comments-system-container .comment__line {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 85px;
+    width: 2px;
+    border-radius: 2px;
+}
+
+#custom-comments-system-container .comment__line--white {
+    background-color: #ffffff;
+}
+
+#custom-comments-system-container .comment__line--dark {
+    background-color: var(--color-text-dark);
+}
+
+#custom-comments-system-container .comment__text {
+    line-height: 1.6;
+}
+
+/* Connector element */
+#custom-comments-system-container .comments-section__connector {
+    height: 84px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 28px;
+}
+
+#custom-comments-system-container .comments-section__count {
+    color: var(--color-text-dark);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   3. Responsive Design
+   ========================================== */
+
+@media (max-width: 930px) {
+    #custom-comments-system-container .comments-section {
+        width: 100%;
+        padding: 0 15px;
+    }
+    #custom-comments-system-container .comment__box--main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #custom-comments-system-container .custom-form {
+        padding: 0 15px;
+    }
+    #custom-comments-system-container .form-row {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    #custom-comments-system-container .comment__meta--reply,
+    #custom-comments-system-container .comment__box--reply {
+        width: calc(100% - 64px);
+        margin-right: 64px;
+    }
+    #custom-comments-system-container .comment__box {
+        padding: 20px 32px 20px 20px;
+        min-height: 120px;
+    }
+    #custom-comments-system-container .comment__line {
+        height: 70px;
+        right: 12px;
+    }
+    #custom-comments-system-container .comments-title {
+        font-size: 26px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #custom-comments-system-container .comment__meta--reply,
+    #custom-comments-system-container .comment__box--reply {
+        width: calc(100% - 32px);
+        margin-right: 32px;
+    }
+    #custom-comments-system-container .comments-section__connector {
+        padding-right: 8px;
+    }
+}
