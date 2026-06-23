@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم تماس سفارشی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #E7A439;
+            --color-border: #66614d;
+            --color-label: #2e210b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .custom-form {
+            width: 100%;
+            max-width: 1134px; /* 547 + 547 + 40 گپ = 1134 */
+        }
+
+        /* استایل ردیف اول */
+        .form-row {
+            display: flex;
+            gap: 40px; /* گپ بین دو فیلد */
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            flex: 1; /* هر فیلد 50% عرض */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* استایل لیبل‌ها */
+        label {
+            font-size: 18px;
+            color: var(--color-label); /* رنگ 13 Swatch */
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* استایل پایه فیلدها */
+        input, textarea {
+            background-color: transparent; /* پس‌زمینه شفاف */
+            border: 1px solid var(--color-border); /* رنگ بوردر Swatch */
+            border-radius: 8px;
+            padding: 0 16px;
+            font-family: inherit;
+            font-size: 16px; /* سایز پلیس هولدر */
+            color: var(--color-label);
+            transition: all 0.3s ease;
+        }
+
+        /* استایل اینپوت‌ها (نام و ایمیل) */
+        input {
+            height: 56px; /* ارتفاع 56 پیکسل */
+            width: 100%;
+        }
+
+        /* استایل تکست آریا */
+        textarea {
+            width: 100%;
+            height: 194px; /* ارتفاع 194 پیکسل */
+            padding: 16px;
+            resize: none; /* جلوگیری از تغییر سایز توسط کاربر */
+            line-height: 1.5;
+        }
+
+        /* استایل پلیس هولدر در حالت عادی */
+        input::placeholder, textarea::placeholder {
+            color: #a5a094;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        /* استایل حالت فوکوس و اکتیو */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary); /* بوردر طلایی در حالت فوکوس */
+        }
+
+        /* تغییر رنگ پلیس هولدر در حالت فوکوس */
+        input:focus::placeholder, textarea:focus::placeholder {
+            color: var(--color-primary); /* پلیس هولدر طلایی در حالت فوکوس */
+            opacity: 1;
+        }
+
+        /* کانتینر دکمه برای وسط‌چین کردن */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        /* استایل دکمه ثبت */
+        .submit-btn {
+            background-color: transparent;
+            border: 1px solid var(--color-primary); /* 1 پیکسل بوردر طلایی */
+            color: var(--color-primary); /* رنگ متن طلایی */
+            border-radius: 8px; /* 8 پیکسل گردی گوشه */
+            padding: 12px 48px;
+            font-family: inherit;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* افکت هاور برای دکمه (اختیاری ولی برای تجربه کاربری بهتره) */
+        .submit-btn:hover {
+            background-color: var(--color-primary);
+            color: #fff;
+        }
+
+        /* ریسپانسیو شدن برای موبایل */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+       
+            input#email {
+                text-align: left;
+            }
+    </style>
+</head>
+<body>
+
+    <form class="custom-form" action="#" method="post">
+        
+        <!-- ردیف اول: دو فیلد کنار هم -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="fullName">نام و نام خانوادگی</label>
+                <input type="text" id="fullName" name="fullName" placeholder="نام خود را وارد کنید">
+            </div>
+            <div class="form-group">
+                <label for="email">ایمیل</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com">
+            </div>
+        </div>
+
+        <!-- ردیف دوم: تکست آریا -->
+        <div class="form-group" style="margin-bottom: 0;">
+            <label for="message">پیام شما</label>
+            <textarea id="message" name="message" placeholder="متن خود را اینجا بنویسید..."></textarea>
+        </div>
+
+        <!-- دکمه ثبت -->
+        <div class="btn-container">
+            <button type="submit" class="submit-btn">ثبت</button>
+        </div>
+
+    </form>
+
+</body>
+</html>

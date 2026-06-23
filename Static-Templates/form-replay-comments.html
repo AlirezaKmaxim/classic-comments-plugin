@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بخش نظرات وردپرس</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #E7A439;
+            --color-primary-light: #FFF6E8;
+            --color-text-light: #fdf6eb;
+            --color-text-dark: #66614d;
+            --color-label: #2e210b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f4f1ea;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* کانتینر اصلی کامنت‌ها */
+        .comments-section {
+            width: 896px;
+            max-width: 100%;
+        }
+
+        /* استایل هدر (نام و تاریخ) که خارج از باکس قرار می‌گیرد */
+        .comment__meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 0 4px;
+        }
+
+        .comment__meta--reply {
+            width: 768px;
+            margin-right: 128px; /* 896 - 768 = 128 برای تراز شدن دقیق لبه چپ با مشتری */
+        }
+
+        .comment__author,
+        .comment__date {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-label);
+        }
+
+        /* استایل باکس‌های کامنت و ریپلای */
+        .comment__box {
+            position: relative;
+            border-radius: 12px;
+            padding: 24px 40px 24px 28px; /* پدینگ راست 40px برای جلوگیری از تداخل با خط */
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 16px;
+            height: 167px; /* ارتفاع دقیق 167 پیکسل برای هر دو باکس */
+        }
+
+        /* باکس کامنت اصلی (نارنجی) */
+        .comment__box--main {
+            width: 896px;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+        }
+
+        /* باکس پاسخ ادمین (کرم رنگ) */
+        .comment__box--reply {
+            width: 768px;
+            background-color: var(--color-primary-light);
+            color: var(--color-text-dark);
+            margin-right: 128px; /* تو رفتگی برای تراز شدن لبه چپ */
+        }
+
+        /* خط عمودی داخل باکس‌ها */
+        .comment__line {
+            position: absolute;
+            right: 16px; /* فاصله 16 پیکسل از راست */
+            top: 50%;
+            transform: translateY(-50%);
+            height: 85px; /* ارتفاع خط */
+            width: 2px;
+            border-radius: 2px;
+        }
+
+        .comment__line--white {
+            background-color: #ffffff; /* خط سفید برای کامنت نارنجی */
+        }
+
+        .comment__line--dark {
+            background-color: var(--color-text-dark); /* خط همرنگ متن برای باکس کرم */
+        }
+
+        .comment__text {
+            line-height: 1.6;
+        }
+
+        /* فاصله و فلش بین کامنت و پاسخ */
+        .comments-section__connector {
+            height: 84px; /* گپ 84 پیکسلی */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 28px;
+        }
+
+        .comments-section__count {
+            color: var(--color-text-dark);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* واکنش‌گرا کردن برای موبایل */
+        @media (max-width: 768px) {
+            .comments-section {
+                width: 100%;
+            }
+            .comment__box--main {
+                width: 100%;
+            }
+            .comment__meta--reply,
+            .comment__box--reply {
+                width: calc(100% - 128px);
+                margin-right: 128px;
+            }
+            .comment__box {
+                padding: 20px 40px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="comments-section">
+        
+        <!-- بخش متا داده‌های کامنت اصلی (خارج از باکس) -->
+        <header class="comment__meta">
+            <span class="comment__author">سارا محمدی</span>
+            <time class="comment__date" datetime="2023-06-05">۱۵ خرداد ۱۴۰۲</time>
+        </header>
+
+        <!-- باکس کامنت اصلی -->
+        <article class="comment__box comment__box--main">
+            <div class="comment__line comment__line--white"></div>
+            <p class="comment__text">عالی بود، ممنون از توضیحات کاملتون</p>
+        </article>
+
+        <!-- بخش فلش و شمارش پاسخ‌ها (در فضای 84 پیکسلی) -->
+        <div class="comments-section__connector">
+            <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 4V14C23 16.2091 21.2091 18 19 18H7" stroke="#66614d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3"/>
+                <path d="M11 14L7 18L11 22" stroke="#66614d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="comments-section__count">۲ پاسخ</span>
+        </div>
+
+        <!-- بخش متا داده‌های پاسخ ادمین (خارج از باکس، با ترازبندی چپ) -->
+        <header class="comment__meta comment__meta--reply">
+            <span class="comment__author">ادمین وبسایت</span>
+            <time class="comment__date" datetime="2023-06-06">۱۶ خرداد ۱۴۰۲</time>
+        </header>
+
+        <!-- باکس پاسخ ادمین -->
+        <article class="comment__box comment__box--reply">
+            <div class="comment__line comment__line--dark"></div>
+            <p class="comment__text">سپاسگزارم از نظر لطفتون</p>
+        </article>
+
+    </section>
+
+</body>
+</html>
