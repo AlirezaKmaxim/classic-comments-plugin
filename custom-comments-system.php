@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Comment System
  * Description: A custom AJAX-based comment system plugin for WordPress featuring a beautifully customized form and nested admin reply layouts.
- * Version: 1.0.3
+ * Version: 1.0.5
  * Author: AlirezaKMaxim
  * Author URI: https://github.com/AlirezaKmaxim
  * Text Domain: custom-comments-system
